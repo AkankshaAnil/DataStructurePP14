@@ -15,7 +15,7 @@ internal class Program
         Console.WriteLine("Linked List Sequence: ");
         linkedList.DisplayList();
 
-        linkedList.Pop();
+        linkedList.PopLast();
 
         Console.WriteLine("Linked List after pop: ");
         linkedList.DisplayList();

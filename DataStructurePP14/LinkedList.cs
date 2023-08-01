@@ -38,12 +38,22 @@ namespace DataStructurePP14
             }
         }
 
-        public void Pop()
+        public void PopLast()
         {
-            if (Head != null)
+            if (Head == null || Head.Next == null)
             {
-                Head = Head.Next;
+                // If the list is empty or has only one element, there is nothing to remove.
+                return;
             }
+
+            Node current = Head;
+            while (current.Next.Next != null)
+            {
+                current = current.Next;
+            }
+
+            // current points to the second-last node
+            current.Next = null;
         }
 
         public void DisplayList()
