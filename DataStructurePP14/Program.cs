@@ -8,9 +8,11 @@ internal class Program
         Console.WriteLine("Hello, Let's Do The Practice Of DataStructure");
 
         LinkedList list = new LinkedList();
-        list.Add(56);
-        list.Add(30);
-        list.Add(70);
-        list.Display();
-     }
+        list.AddNode(56);
+        list.AddNode(30);
+        list.AddNode(70);
+
+        Console.WriteLine("Linked List Sequence: ");
+        list.DisplayList();
+    }
 }
