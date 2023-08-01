@@ -10,6 +10,7 @@ namespace DataStructurePP14
     {
         public int Data;
         public Node Next;
+
         public Node(int data)
         {
             Data = data;

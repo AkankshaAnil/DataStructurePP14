@@ -1,51 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataStructurePP14
 {
-        public class LinkedList
+    public class LinkedList
+    {
+        public Node Head;
+
+        public LinkedList()
         {
-            public Node Head;
+            Head = null;
+        }
 
-            public LinkedList()
+        public void AddNode(int data)
+        {
+            Node newNode = new Node(data);
+
+            if (Head == null)
             {
-                Head = null;
+                Head = newNode;
             }
-
-            public void AddNode(int data)
-            {
-                Node newNode = new Node(data);
-
-                if (Head == null)
-                {
-                    Head = newNode;
-                }
-                else
-                {
-                    Node current = Head;
-                    while (current.Next != null)
-                    {
-                        current = current.Next;
-                    }
-                    current.Next = newNode;
-                }
-            }
-
-            public void DisplayList()
+            else
             {
                 Node current = Head;
-                while (current != null)
+
+                // Find the position to insert the new node
+                while (current.Next != null && current.Next.Data < data)
                 {
-                    Console.Write(current.Data + "->");
                     current = current.Next;
                 }
-                Console.WriteLine("null");
+
+                newNode.Next = current.Next;
+                current.Next = newNode;
             }
         }
-    }
-    
 
+        public void Pop()
+        {
+            if (Head != null)
+            {
+                Head = Head.Next;
+            }
+        }
+
+        public void DisplayList()
+        {
+            Node current = Head;
+            while (current != null)
+            {
+                Console.Write(current.Data + "->");
+                current = current.Next;
+            }
+            Console.WriteLine("null");
+        }
+    }
+}

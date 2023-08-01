@@ -7,12 +7,17 @@ internal class Program
     {
         Console.WriteLine("Hello, Let's Do The Practice Of DataStructure");
 
-        LinkedList list = new LinkedList();
-        list.AddNode(56);
-        list.AddNode(30);
-        list.AddNode(70);
+        LinkedList linkedList = new LinkedList();
+        linkedList.AddNode(56);
+        linkedList.AddNode(30);
+        linkedList.AddNode(70);
 
         Console.WriteLine("Linked List Sequence: ");
-        list.DisplayList();
+        linkedList.DisplayList();
+
+        linkedList.Pop();
+
+        Console.WriteLine("Linked List after pop: ");
+        linkedList.DisplayList();
     }
 }
