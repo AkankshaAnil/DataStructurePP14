@@ -8,40 +8,44 @@ namespace DataStructurePP14
 {
     public class LinkedList
     {
-        internal Node head;
-        internal void Add(int data)
+        public Node Head;
+
+        public LinkedList()
         {
-            Node node = new Node(data);
-            if(this.head == null )
+            Head = null;
+        }
+          public void AddNode(int data)
+        {
+            Node newNode = new Node(data);
+
+            if (Head == null)
             {
-                this.head = node;
+                Head = newNode;
             }
             else
             {
-             Node temp = head;
-                while( temp.next != null ) 
+                Node current = Head;
+
+                // Find the position to insert the new node
+                while (current.Next != null && current.Next.Data < data)
                 {
-                temp = temp.next;
+                    current = current.Next;
                 }
-                temp.next = node;
+
+                newNode.Next = current.Next;
+                current.Next = newNode;
             }
-            Console.WriteLine("{0} inserted into LinkedList", node.data);
-        }
-        internal void Display()
-        { 
-        Node temp = this.head;
-            if( temp == null )
-            {
-                Console.WriteLine("LinkedList is Empty");
-                return;
-            }
-            while( temp != null )
-            {
-                Console.WriteLine(temp.data + " ");
-                temp = temp.next;
-            }
-        
         }
 
+        public void DisplayList()
+        {
+            Node current = Head;
+            while (current != null)
+            {
+                Console.Write(current.Data + "->");
+                current = current.Next;
+            }
+            Console.WriteLine("null");
+        }
     }
 }
